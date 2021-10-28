@@ -24,8 +24,7 @@ Server 1:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: LaTeX compile
-        working-directory: ${{ env.DIR }}
+      - name: complite
         run: echo: "abc" >> file1
       - name: move
         run: mkdir -p github_artifacts && mv file1 ./github_artifacts/
