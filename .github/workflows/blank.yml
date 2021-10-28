@@ -27,7 +27,7 @@ jobs:
       - name: complite
         run: echo \"abc\" >> file1 
       - name: move
-        run: mkdir -p github_artifacts && mv file1 ./github_artifacts/
+        run: mkdir -p github_artifacts && mv ${{ env.FILE }} ./github_artifacts/
       - name: Upload pdf as artifact
         uses: actions/upload-artifact@v2
         with:
