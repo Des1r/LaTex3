@@ -25,7 +25,7 @@ Server 1:
       - name: Checkout
         uses: actions/checkout@v2
       - name: complite
-        run: echo: \"abc\" >> file1 
+        run: echo \"abc\" >> file1 
       - name: move
         run: mkdir -p github_artifacts && mv file1 ./github_artifacts/
       - name: Upload pdf as artifact
