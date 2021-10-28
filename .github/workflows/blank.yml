@@ -45,10 +45,10 @@ jobs:
           path: github_artifacts
       - name: move
         run: mkdir -p github_deploy && mv github_artifacts/*/*   github_deploy &&  cat github_deploy/file1 >> github_deploy/file2 && echo "2" >> github_deploy/file2
-      - name: deploy on orphan branch
-        uses: peaceiris/actions-gh-pages@v3
+      - name: move file2
+        run: mv github_deploy/file2 ./github_artifacts/
+      - name: move file2 to artifacts
+        uses: actions/upload-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./github_deploy
-          publish_branch: build
-          force_orphan: true
+          name: file2
+          path: ./github_artifacts
