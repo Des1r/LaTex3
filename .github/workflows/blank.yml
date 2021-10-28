@@ -15,7 +15,7 @@
 name: work with file
 on: [push]
 jobs:
-Server1:
+  Server1:
     runs-on: ubuntu-latest
     env:
       # Edit here with the names of your latex file and directory (can use ".")
