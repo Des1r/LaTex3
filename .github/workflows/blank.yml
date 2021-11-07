@@ -100,7 +100,7 @@ jobs:
       - name: move
         run: mkdir -p github_deploy && mv github_artifacts/*/*   github_deploy &&  cat github_deploy/file3 >> github_deploy/file5 && echo "5" >> github_deploy/file5
       - name: move file5
-        run: mv github_deploy/file4 ./github_artifacts/
+        run: mv github_deploy/file5 ./github_artifacts/
       - name: move file5 to artifacts
         uses: actions/upload-artifact@v2
         with:
