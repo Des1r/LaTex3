@@ -107,7 +107,7 @@ jobs:
           name: file5
           path: ./github_artifacts 
   Server6:
-    needs: [Server4,5]
+    needs: [Server5]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
