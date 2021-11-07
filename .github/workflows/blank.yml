@@ -107,7 +107,7 @@ jobs:
           name: file5
           path: ./github_artifacts 
   Server6:
-    needs: [Server5]
+    needs: [Server4, 5]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -116,7 +116,7 @@ jobs:
         with:
           path: github_artifacts
       - name: move
-        run: mkdir -p github_deploy && mv github_artifacts/*/*   github_deploy &&  cat github_deploy/file2 >> github_deploy/file6 && echo "6" >> github_deploy/file6
+        run: mkdir -p github_deploy && mv github_artifacts/*/*   github_deploy &&  cat github_deploy/file4 >> github_deploy/file6 && github_deploy/file5 >> github_deploy/file6 
       - name: deploy on orphan branch
         uses: peaceiris/actions-gh-pages@v3
         with:
