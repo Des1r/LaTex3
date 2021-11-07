@@ -70,3 +70,20 @@ jobs:
         with:
           name: file3
           path: ./github_artifacts                          
+  Server4:
+   needs: [Server2]
+   runs-on: ubuntu-latest
+   steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          path: github_artifacts
+        run: mkdir -p github_deploy && mv github_artifacts/*/*   github_deploy &&  cat github_deploy/file2 >> github_deploy/file4 && echo "4" >> github_deploy/file4
+      - name: move file4
+        run: mv github_deploy/file4 ./github_artifacts/
+      - name: move file4 to artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: file4
+          path: ./github_artifacts  
