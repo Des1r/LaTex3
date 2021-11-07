@@ -53,7 +53,7 @@ jobs:
           name: file2
           path: ./github_artifacts                                                                                                                  
   Server3:
-   needs: [Server2]
+   needs: [Server1]
    runs-on: ubuntu-latest
    steps:
       - name: Checkout
@@ -62,7 +62,7 @@ jobs:
         with:
           path: github_artifacts
       - name: move
-        run: mkdir -p github_deploy && mv github_artifacts/*/*   github_deploy &&  cat github_deploy/file1 >> github_deploy/file2 && echo "2" >>cat github_deploy/file1 >> github_deploy/file3 github_deploy/file3>> github_deploy/file3 && echo "3" >> github_deploy/file3
+        run: mkdir -p github_deploy && mv github_artifacts/*/*   github_deploy &&  cat github_deploy/file1 >> github_deploy/file3 && echo "3" >> github_deploy/file3
       - name: move file3
         run: mv github_deploy/file3 ./github_artifacts/
       - name: move file3 to artifacts
