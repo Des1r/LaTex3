@@ -116,13 +116,13 @@ jobs:
         with:
           path: github_artifacts
       - name: move
-        run: mkdir -p github_deploy && mv github_artifacts/*/*   github_deploy &&  cat github_deploy/file4 >> github_deploy/file6 && github_deploy/file5 >> github_deploy/file6 
+        run: mkdir -p github_deploy && mv github_artifacts/*/*   github_deploy &&  cat github_deploy/file4 >> github_deploy/file6 && cat github_deploy/file5 >> github_deploy/file6 
       - name: deploy on orphan branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./github_deploy
-          publish_branch: build1
+          publish_branch: build
           force_orphan: true
   
     
